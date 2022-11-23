@@ -8,6 +8,8 @@ from __future__ import absolute_import, division, print_function
 
 __metaclass__ = type
 
+import sys
+
 ANSIBLE_METADATA = {
     "metadata_version": "1.1",
     "status": ["preview"],
@@ -187,22 +189,23 @@ def get_all_webhooks(meraki, net_id):
 
 
 def sanitize_no_log_values(meraki):
-    try:
-        meraki.result["diff"]["before"][
-            "shared_secret"
-        ] = "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER"
-    except KeyError:
-        pass
-    try:
-        meraki.result["data"][0][
-            "shared_secret"
-        ] = "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER"
-    except (KeyError, IndexError):
-        pass
-    try:
-        meraki.result["data"]["shared_secret"] = "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER"
-    except (KeyError, TypeError):
-        pass
+    pass
+    # try:
+    #     meraki.result["diff"]["before"][
+    #         "shared_secret"
+    #     ] = "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER"
+    # except KeyError:
+    #     pass
+    # try:
+    #     meraki.result["data"][0][
+    #         "shared_secret"
+    #     ] = "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER"
+    # except (KeyError, IndexError):
+    #     pass
+    # try:
+    #     meraki.result["data"]["shared_secret"] = "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER"
+    # except (KeyError, TypeError):
+    #     pass
 
 
 def main():
